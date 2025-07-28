@@ -3,8 +3,6 @@ package LibraryManagement;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.Connection;
-import java.sql.SQLOutput;
 
 public class Registration {
     public static void registerName() {
