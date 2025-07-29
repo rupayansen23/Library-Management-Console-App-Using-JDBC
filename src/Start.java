@@ -1,4 +1,5 @@
 import LibraryManagement.AdminLogin;
+import LibraryManagement.BorrowBook;
 import LibraryManagement.Registration;
 
 import java.util.Scanner;
@@ -19,6 +20,9 @@ public class Start {
             switch (choice) {
                 case 1:
                     Registration.registerName();
+                    break;
+                case 2 :
+                    BorrowBook.studentAuthentication();
                     break;
                 case 5:
                     AdminLogin.login();

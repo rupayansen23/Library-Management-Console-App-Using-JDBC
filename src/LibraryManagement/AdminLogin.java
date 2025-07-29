@@ -41,7 +41,6 @@ public class AdminLogin {
                         System.out.println("Wrong command ! try again");
                 }
             }
-
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
@@ -67,7 +66,7 @@ public class AdminLogin {
                     db_userName = resultSet.getString(1);
                     db_password = resultSet.getString(2);
                 }
-                System.out.println(db_userName+" "+db_password);
+//                System.out.println(db_userName+" "+db_password);
                 if(userName.equals(db_userName) && db_password.equals(passwd)) {
                     System.out.println("Authentication successful ");
                     AdminLogin.addBook();
