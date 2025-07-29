@@ -45,6 +45,12 @@ public class BorrowBook {
                             preparedStatement.setString(1, book.getBid());
                             preparedStatement.setString(2, db_roll);
                             preparedStatement.executeUpdate();
+                            book.setCurrentStock(book.getCurrentStock()-1);
+                            String updateStock = "UPDATE books SET current_stock = ? WHERE b_id = ?;";
+                            PreparedStatement pstmt = connection.prepareStatement(updateStock);
+                            pstmt.setInt(1, book.getCurrentStock());
+                            pstmt.setString(2, book.getBid());
+                            pstmt.executeUpdate();
 
                         } else if(book2 == null) {
                             String updateQuery = "UPDATE students SET book2 = ? WHERE sroll = ?;";
@@ -52,6 +58,12 @@ public class BorrowBook {
                             preparedStatement.setString(1, book.getBid());
                             preparedStatement.setString(2, db_roll);
                             preparedStatement.executeUpdate();
+                            book.setCurrentStock(book.getCurrentStock()-1);
+                            String updateStock = "UPDATE books SET current_stock = ? WHERE b_id = ?;";
+                            PreparedStatement pstmt = connection.prepareStatement(updateStock);
+                            pstmt.setInt(1, book.getCurrentStock());
+                            pstmt.setString(2, book.getBid());
+                            pstmt.executeUpdate();
                         } else {
                             System.out.println("You reached book allocation limit !! we can't allocate more");
                         }
