@@ -3,9 +3,8 @@ package LibraryManagement;
 public class Book {
     private String bid, bname, bauthor;
     private int currentStock, totalStock;
-    public Book() {
+    public Book() {}
 
-    }
     public void setBid(String bid) {
         this.bid = bid;
     }

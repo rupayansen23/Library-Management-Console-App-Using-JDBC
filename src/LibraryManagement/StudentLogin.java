@@ -1,6 +1,5 @@
 package LibraryManagement;
 
-import com.mysql.cj.conf.ConnectionUrlParser;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class StudentLogin {
     public static Student studentAuthentication() {
@@ -35,7 +35,7 @@ public class StudentLogin {
                     student.setBook1(resultSet.getString(5));
                     student.setBook2(resultSet.getString(6));
                 }
-                System.out.println(student.getRollNumber()+" "+student.getFirstName());
+//                System.out.println(student.getRollNumber()+" "+student.getFirstName());
                 if(roll.equals(student.getRollNumber()) && student.getFirstName().equals(firstName)) {
                     return student;
                 }
@@ -48,5 +48,15 @@ public class StudentLogin {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+    public static void showYourInfo(Student student) throws IOException{
+
+        BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("-------------Welcome Sir------------");
+        System.out.println("Name : "+student.getFirstName()+" "+student.getLastName());
+        System.out.println("Roll NO : "+student.getRollNumber());
+        System.out.println("Department :"+student.getDept());
+        System.out.println("-------------------------------------");
+
     }
 }

@@ -1,9 +1,10 @@
 import LibraryManagement.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Start {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("-------RCCIIT Library Welcomes you----------");
         Scanner sc = new Scanner(System.in);
         while(true) {
@@ -35,6 +36,13 @@ public class Start {
                         BookOperation.returnBook(student1);
                     }
                     break;
+                case 4 :
+                    Student student2 = StudentLogin.studentAuthentication();
+                    if(student2 != null) {
+                        StudentLogin.showYourInfo(student2);
+                    } else {
+                        System.out.println("Authentication Unsucessfull");
+                    }
                 case 5:
                     AdminLogin.login();
                     break;
