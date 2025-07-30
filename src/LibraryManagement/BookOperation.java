@@ -34,7 +34,7 @@ public class BookOperation {
             }
             try{
                 boolean flag = false;
-                System.out.println(student.getBook1()+" "+student.getBook2());
+                //System.out.println(student.getBook1()+" "+student.getBook2());
                 BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
                 System.out.println("Enter book id to take : ");
                 String bookId = buf.readLine();
@@ -124,7 +124,7 @@ public class BookOperation {
                         pstmt.setString(1, student.getRollNumber());
                         pstmt.executeUpdate();
 
-                        String query3 = "UPDATE books SET current_stock = current_stock + 1 WHERE b_id = ?";
+                        String query3 = "UPDATE books SET current_stock = current_stock+1 WHERE b_id = ?";
                         PreparedStatement pstmt2 = connection.prepareStatement(query3);
                         pstmt2.setString(1, book_id);
                         pstmt2.executeUpdate();
@@ -142,6 +142,9 @@ public class BookOperation {
                     }
                     else {
                         System.out.println("Invalid Book id");
+                        System.out.println("Would you like to Continue [y/Y] : ");
+                        String input = buf.readLine();
+                        yes = input.charAt(0);
                         continue;
                     }
                     System.out.println("Would you like to Continue [y/Y] : ");
