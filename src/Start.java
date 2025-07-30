@@ -1,6 +1,4 @@
-import LibraryManagement.AdminLogin;
-import LibraryManagement.BorrowBook;
-import LibraryManagement.Registration;
+import LibraryManagement.*;
 
 import java.util.Scanner;
 
@@ -22,7 +20,20 @@ public class Start {
                     Registration.registerName();
                     break;
                 case 2 :
-                    BorrowBook.studentAuthentication();
+                    Student student = StudentLogin.studentAuthentication();
+                    if(student != null) {
+                        System.out.println("Authentication Successfull");
+                        BookOperation.collectBook(student);
+                    } else {
+                        System.out.println("Authentication Unsucessfull");
+                    }
+                    break;
+                case 3 :
+                    Student student1 = StudentLogin.studentAuthentication();
+                    if(student1 != null) {
+                        System.out.println("Authentication Sucessful");
+                        BookOperation.returnBook(student1);
+                    }
                     break;
                 case 5:
                     AdminLogin.login();
