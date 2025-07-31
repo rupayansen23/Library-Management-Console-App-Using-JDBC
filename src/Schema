@@ -1,0 +1,81 @@
+CREATE TABLE books (
+    b_id CHAR(5) PRIMARY KEY NOT NULL,
+    b_name VARCHAR(255),
+    b_author VARCHAR(255),
+    total_stock INT,
+    current_stock INT,
+    PRIMARY KEY (b_id)
+);
+
+CREATE TABLE admin (
+    userName VARCHAR(255),
+    password VARCHAR(255) PRIMARY KEY NOT NULL,
+
+);
+
+CREATE TABLE students (
+    sroll CHAR(10) PRIMARY KEY NOT NULL,
+    sfirstname VARCHAR(255),
+    slastname VARCHAR(255),
+    dept VARCHAR(255),
+    book1 CHAR(10),
+    book2 CHAR(10)
+);
+
++-------------------+
+| Tables_in_library |
++-------------------+
+| admin             |
+| books             |
+| students          |
++-------------------+
+
+mysql> desc admin;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| userName | varchar(255) | YES  |     | NULL    |       |
+| password | varchar(255) | NO   | PRI | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+
+mysql> desc books;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| b_id          | char(5)      | NO   | PRI | NULL    |       |
+| b_name        | varchar(255) | YES  |     | NULL    |       |
+| b_author      | varchar(255) | YES  |     | NULL    |       |
+| total_stock   | int          | YES  |     | NULL    |       |
+| current_stock | int          | YES  |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+
+mysql> desc students;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| sroll      | char(10)     | NO   | PRI | NULL    |       |
+| sfirstname | varchar(255) | YES  |     | NULL    |       |
+| slastname  | varchar(255) | YES  |     | NULL    |       |
+| dept       | varchar(255) | YES  |     | NULL    |       |
+| book1      | char(10)     | YES  |     | NULL    |       |
+| book2      | char(10)     | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+
+mysql> select * from students;
++------------+------------+-------------+------+-------+-------+
+| sroll      | sfirstname | slastname   | dept | book1 | book2 |
++------------+------------+-------------+------+-------+-------+
+| mca2024010 | rupayan    | sen         | mca  | NULL  | ej001 |
+| mca2024013 | debarpan   | das         | mca  | ej001 | NULL  |
+| mca2024021 | arnab      | chakarborty | mca  | NULL  | NULL  |
++------------+------------+-------------+------+-------+-------+
+
+mysql> select * from books;
++-------+----------------+--------------+-------------+---------------+
+| b_id  | b_name         | b_author     | total_stock | current_stock |
++-------+----------------+--------------+-------------+---------------+
+| cp001 | c programming  | kanatkar     |          10 |             9 |
+| ej001 | effective java | joshua bloch |          10 |             8 |
+| os001 | Intro to OS    | Galvin       |           6 |             6 |
++-------+----------------+--------------+-------------+---------------+
+
